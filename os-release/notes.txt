@@ -1,0 +1,4 @@
+neofetch --source ~/mylogo.txt
+
+ascii_distro="custom"
+image_source="~/mylogo.txt"

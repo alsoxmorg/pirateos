@@ -1,0 +1,39 @@
+
+# ~/.mkshrc – Sane mksh suckless setup
+
+# Avoid duplicating /opt/suckless/bin in PATH
+#case ":$PATH:" {
+#  (*:/opt/suckless/bin:*) ;;
+#  (*) export PATH="/opt/suckless/bin:$PATH" ;;
+#}
+
+
+set -o emacs
+# Set suckless mode flag
+export SUCKLESS_MODE=1
+
+LOGO="/etc/skullaa.txt"
+OSRELEASE="/etc/os-release"
+PIRATESHIP="/opt/suckless"
+
+# Minimal, portable prompt with working current directory
+#PS1='[ $(whoami)@$(hostname) $(pwd)]$ '
+PS1='$(date +%m%d%H%M%S):$(basename $(pwd)):$ '
+PS1='$(whoami):$(basename $(pwd))$ '
+#PS1='\001\033[1;32m\002$(date +%m%d%H%M%S)\001\033[0m\002:\001\033[1;34m\002$(basename $(pwd))\001\033[0m\002:$ '
+
+
+# Set sane defaults for editor and pager
+export EDITOR="$PIRATESHIP/bin/mg"
+export PAGER="$PIRATESHIP/bin/more"
+
+export PATH="/opt/suckless/bin:/home/tcooper/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/tcooper/.dotnet/tools"
+
+#alias ls='/home/tcooper/.local/bin/myls.ksh'
+#alias ls='/home/tcooper/.local/bin/myls.ksh'
+alias lsa='/home/tcooper/.local/bin/myls.ksh'
+alias neofetch='neofetch --source $LOGO'
+alias uname='echo "Linux orange5 6.1.0-1025-rockchip #25-Pirate SMP Mon Aug 26 23:01:14 UTC 2024 aarch64"'
+
+# Optional: basic greeting
+#echo "Welcome to suckless mode."

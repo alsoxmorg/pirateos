@@ -1,0 +1,9 @@
+NAME="Reich Linux"
+PRETTY_NAME="Das Linux des Volkes, für den Anführer"
+ID=reichlinux
+ID_LIKE=debian
+VERSION="1.0"
+VERSION_ID="1.0"
+HOME_URL="https://imhaxxorlinux.org"
+SUPPORT_URL="https://imhaxxorlinux.org/support"
+BUG_REPORT_URL="https://imhaxxorlinux.org/bugs"

@@ -1,0 +1,60 @@
+
+Dependancies required for building
+gcc binutils bison
+
+mkdir build
+
+# Build and install musl libc
+echo "Building and installing musl libc..."
+git clone https://git.musl-libc.org/cgit/musl
+cd musl
+./configure --prefix="$PREFIX" --enable-static
+make
+make install
+cd..
+
+# Build and install sbase
+echo "Building and installing sbase..."
+git clone https://git.suckless.org/sbase
+cd sbase
+make PREFIX="$PREFIX" CC="$PREFIX/bin/musl-gcc"
+make install PREFIX="$PREFIX"
+cd..
+
+# Build and install ubase
+echo "Building and installing ubase..."
+git clone https://git.suckless.org/ubase
+cd ubase
+make PREFIX="$PREFIX" CC="$PREFIX/bin/musl-gcc"
+make install PREFIX="$PREFIX"
+cd..
+
+# Build and install one true awk
+echo "Building and installing one true awk..."
+git clone https://github.com/onetrueawk/awk
+cd awk
+./configure --prefix="$PREFIX" --with-gnu-ld
+make
+make install
+cd..
+
+# Install mksh
+echo "Installing mksh..."
+git clone https://github.com/MirBSD/mksh
+cd mksh
+make PREFIX="$PREFIX" CC="$PREFIX/bin/musl-gcc"
+make install PREFIX="$PREFIX"
+cd..
+
+# Build and install mg
+echo "Building and installing mg..."
+git clone https://github.com/troglobit/mg
+cd mg
+make PREFIX="$PREFIX" CC="$PREFIX/bin/musl-gcc"
+make install PREFIX="$PREFIX"
+cd..
+
+# Configure the shell to use the Suckless tools
+echo "Configuring the shell to use the Suckless tools..."
+echo "export PATH=\"$PREFIX/bin:\$PATH\"" > "$PREFIX/etc/mkshrc"
+

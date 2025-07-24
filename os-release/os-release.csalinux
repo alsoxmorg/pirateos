@@ -1,0 +1,9 @@
+NAME="CSA Linux"
+PRETTY_NAME="Linux for Rebels."
+ID=csalinux
+ID_LIKE=debian
+VERSION="1.0"
+VERSION_ID="1.0"
+HOME_URL="https://www.kernel.org"
+SUPPORT_URL="https://www.kernel.org/support"
+BUG_REPORT_URL="https://www.linux.org/bugs"
